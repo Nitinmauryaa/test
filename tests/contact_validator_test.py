@@ -28,6 +28,15 @@ def test_is_valid_phone_true():
     # Assert
     assert result == True
 
+def test_normalize_phone():
+    """Test normalizing a phone number with dashes."""
+    assert normalize_phone("555-123-4567") == "5551234567"
+
+def test_normalize_phone_invalid():
+    """Test that an invalid phone number cannot be normalized."""
+    with pytest.raises(ValueError):
+        normalize_phone("123")
+
 def test_mask_email_basic():
     """Test masking a typical email address."""
     # Arrange
